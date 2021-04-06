@@ -25,7 +25,7 @@ def main():
   cwd = os.getcwd()
   sortedFolders = sorted_ls(datadir)[::-1]
   for folder in sortedFolders:
-    folderpath = cwd + "\\" + datadir + "\\" + folder
+    folderpath = cwd + "/" + datadir + "/" + folder
     files = os.listdir(folderpath)
     response += "<div><a href=\"/download/{fo}/{fi}\">/{fo}/{fi}</a></div>\n".format(fo=folder, fi=files[0])
 
@@ -36,7 +36,7 @@ def main():
 
 @app.route("/download/<folder>/<file>")
 def download(folder, file):
-  return static_file(file, root=datadir + "\\" + folder, download=file)
+  return static_file(file, root=datadir + "/" + folder)
 
 
 run(app, host='localhost', port=8080)
