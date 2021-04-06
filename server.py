@@ -28,9 +28,9 @@ def main():
     folderpath = cwd + "/" + datadir + "/" + folder
     files = os.listdir(folderpath)
     for i in files:
-      if files.split(".")[-1] == "metadata":
+      if i.split(".")[-1] == "metadata":
         pass
-      response += "<div><a href=\"/download/{fo}/{fi}\">/{fo}/{fi}</a></div>\n".format(fo=folder, fi=files[0])
+      response += "<div><a href=\"/download/{fo}/{fi}\">/{fo}/{fi}</a></div>\n".format(fo=folder, fi=i])
 
   response += """  </div>
   </body>
