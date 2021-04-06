@@ -27,7 +27,10 @@ def main():
   for folder in sortedFolders:
     folderpath = cwd + "/" + datadir + "/" + folder
     files = os.listdir(folderpath)
-    response += "<div><a href=\"/download/{fo}/{fi}\">/{fo}/{fi}</a></div>\n".format(fo=folder, fi=files[0])
+    for i in files:
+      if files.split(".")[-1] == "metadata":
+        pass
+      response += "<div><a href=\"/download/{fo}/{fi}\">/{fo}/{fi}</a></div>\n".format(fo=folder, fi=files[0])
 
   response += """  </div>
   </body>
